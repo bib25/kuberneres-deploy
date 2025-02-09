@@ -1,0 +1,23 @@
+# Maven target directory
+/target/
+
+# Logs
+*.log
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+
+# Eclipse
+/.project
+/.classpath
+/.settings/
+
+# VS Code
+/.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db

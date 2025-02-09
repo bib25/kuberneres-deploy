@@ -1,0 +1,42 @@
+# Deployment configuration for the Spring Boot application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-rest-api
+  labels:
+    app: spring-boot-rest-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-rest-api
+  strategy:
+    type: RollingUpdate # Define the update strategy as rolling update
+    rollingUpdate:
+      maxSurge: 1 # Maximum number of pods that can be created above the desired number of pods
+      maxUnavailable: 0 # Maximum number of pods that can be unavailable during the update process
+  template:
+    metadata:
+      labels:
+        app: spring-boot-rest-api
+    spec:
+      containers:
+      - name: spring-boot-rest-api
+        image: spring-boot-rest-api:latest
+        ports:
+        - containerPort: 8080
+---
+# Service configuration to expose the Spring Boot application
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-rest-api
+spec:
+  type: NodePort
+  selector:
+    app: spring-boot-rest-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30007
