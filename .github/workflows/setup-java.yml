@@ -1,0 +1,30 @@
+name: Setup Java
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: 21
+        distribution: 'temurin' # Specify the distribution
+        java-package: jdk
+        architecture: x64
+        check-latest: false
+        server-id: github
+        server-username: ${{ secrets.GITHUB_ACTOR }}
+        server-password: ${{ secrets.GITHUB_TOKEN }}
+        overwrite-settings: true
