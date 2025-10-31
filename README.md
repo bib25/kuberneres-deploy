@@ -50,6 +50,10 @@ kubectl expose deployment/spring-boot-rest-api --type=ClusterIp --port=8080
 curl -v http://<target-EC2-private-IP>:31307
 Note: IP must be of worker node where pods are running.
 
+### Note : Please configure Cloud controll manager as below 
+
+https://devopscube.com/aws-cloud-controller-manager/
+
 
 ##Create Service as Loadbalancer :
 
