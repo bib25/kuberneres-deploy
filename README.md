@@ -65,6 +65,7 @@ metadata:
     app: spring-boot-rest-api
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: "HTTP"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "/hello"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: "8080"
 spec:
