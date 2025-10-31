@@ -51,6 +51,12 @@ curl -v http://<target-EC2-private-IP>:31307
 Note: IP must be of worker node where pods are running.
 
 
+##Need to configure Cloud control manager
+https://devopscube.com/aws-cloud-controller-manager/
+
+It is required to integrate ELB for kubernetes
+
+
 ##Create Service as Loadbalancer :
 
 apiVersion: v1
